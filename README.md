@@ -37,6 +37,8 @@ npx @joshmccall/corber-react
 npx -p @storybook/cli sb init
 ```
 
+[office-ui-fabric](https://developer.microsoft.com/en-us/fabric#/components/peoplepicker)
+
 ### Installation
 
 ```sh
