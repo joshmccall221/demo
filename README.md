@@ -33,6 +33,10 @@ npx @travi/cli
 npx @joshmccall/corber-react
 ```
 
+```sh
+npx -p @storybook/cli sb init
+```
+
 ### Installation
 
 ```sh
