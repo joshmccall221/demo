@@ -24,10 +24,14 @@ npx @travi/cli
 - [conventionalcommits](https://www.conventionalcommits.org/)
 
 ## Getting Started
+
 ```sh
 npx @travi/cli
 ```
 
+```sh
+npx @joshmccall/corber-react
+```
 
 ### Installation
 
