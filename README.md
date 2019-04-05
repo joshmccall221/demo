@@ -1,9 +1,11 @@
 # demo
+
 <!-- status badges -->
 [![Build Status][ci-badge]][ci-link]
 [![Codecov][coverage-badge]][coverage-link]
 
 demo of:
+
 ```sh
 npx @travi/cli
 ```
@@ -14,7 +16,8 @@ npx @travi/cli
 [![npm][npm-badge]][npm-link]
 [![MIT license][license-badge]][license-link]
 
-## issues / dependancies 
+## issues / dependancies
+
 - npm login
 - .netrc
   - token
@@ -42,7 +45,7 @@ npx -p @storybook/cli sb init
 ### Installation
 
 ```sh
-$ npm install @joshmccall/demo
+npm install @joshmccall/demo
 ```
 
 ## Contributing

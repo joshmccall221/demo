@@ -27,7 +27,7 @@ export interface IPeoplePickerExampleState {
   isPickerDisabled?: boolean;
 }
 export interface IPeoplePickerExampleProps{
-  delayResults?: boolean;
+  delayResults: boolean;
 }  
 
 const suggestionProps: IBasePickerSuggestionsProps = {
@@ -119,7 +119,7 @@ console.log({delay : this.props.delayResults})
           />
           <Toggle
             label="Delay Suggestion Results" defaultChecked={this.props.delayResults}
-          onChange={this._toggleDelayResultsChange} 
+          // onChange={this._toggleDelayResultsChange} 
           />
         </div>
         <PrimaryButton text="Set focus" onClick={this._onSetFocusButtonClicked} />
