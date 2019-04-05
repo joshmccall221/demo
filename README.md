@@ -1,3 +1,15 @@
+# Getting Started
+`npx @travi/cli`
+
+[conventionalcommits](https://www.conventionalcommits.org/)
+
+# issues
+npm login
+.netrc
+- token
+
+enable [.github/settings.yml](https://github.com/apps/settings)
+
 # demo
 
 demo
