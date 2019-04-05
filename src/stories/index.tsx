@@ -12,7 +12,7 @@ import {
   PersonaPresence
 } from 'office-ui-fabric-react';
 import { PersonaBasicExample } from "./Persona/Persona";
-import { ButtonDefaultExample } from "./office-ui-fabric-react/packages/office-ui-fabric-react/src/components/Button/examples/Button.Default.Example";
+// import { ButtonDefaultExample } from "./office-ui-fabric-react/packages/office-ui-fabric-react/src/components/Button/examples/Button.Default.Example";
 import { ShimmerApplicationExample } from "./Contact Group/ContactGroup";
 import { ShimmerLoadDataExample } from "./Persona/Shimmer";
 import { FindYourContact } from "./Contact Group";
@@ -37,18 +37,18 @@ storiesOf("office-ui-fabric-react: Components", module)
   .add("Persona w/ image", () => < PersonaBasicExample hidePersonaDetails image />)
   .add("Persona w/ image + details", () => < PersonaBasicExample image />)
   .add("Persona w/ image + details + presence", () => < PersonaBasicExample presence image />)
-  .add("Button Standard", () => < ButtonDefaultExample text={
-    "Button"
-  }
-  />)
-  .add("Button Primary", () => < ButtonDefaultExample primary text={
-    "Button"
-  }
-  />)
+  // .add("Button Standard", () => < ButtonDefaultExample text={
+  //   "Button"
+  // }
+  // />)
+  // .add("Button Primary", () => < ButtonDefaultExample primary text={
+  //   "Button"
+  // }
+  // />)
   .add("Contact Groups", () => < ShimmerApplicationExample />)
   .add("Contact Groups - loading", () => < ShimmerApplicationExample />)
   .add("Contact Groups - loaded", () => < ShimmerApplicationExample isDataLoaded />)
-// ShimmerApplicationExample
+// // ShimmerApplicationExample
 
 storiesOf("office-ui-fabric-react: Screens", module)
   .add("Find Your Contact", () => < FindYourContact {...{
