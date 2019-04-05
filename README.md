@@ -20,6 +20,7 @@ npx @travi/cli
   - token
 - enable [.github/settings.yml](https://github.com/apps/settings)
 - GH_TOKEN on Travis
+- NPM_TOKEN on Travis
 - [conventionalcommits](https://www.conventionalcommits.org/)
 
 ## Getting Started
