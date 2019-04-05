@@ -17,6 +17,7 @@ import { Promise } from 'es6-promise';
 // Helper imports to generate data for this particular examples. Not exported by any package.
 import { people, mru } from './PeoplePickerExampleData';
 import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
+import { Link } from 'office-ui-fabric-react';
 
 export interface IPeoplePickerExampleState {
   currentPicker?: number | string;
@@ -26,9 +27,12 @@ export interface IPeoplePickerExampleState {
   currentSelectedItems?: IPersonaProps[];
   isPickerDisabled?: boolean;
 }
-export interface IPeoplePickerExampleProps{
+export interface IPeoplePickerExampleProps {
   delayResults: boolean;
-}  
+  options?: boolean;
+  hideHeader?: boolean;
+  preSelected?: boolean;
+}
 
 const suggestionProps: IBasePickerSuggestionsProps = {
   suggestionsHeaderText: 'Suggested People',
@@ -37,7 +41,7 @@ const suggestionProps: IBasePickerSuggestionsProps = {
   loadingText: 'Loading',
   showRemoveButtons: true,
   suggestionsAvailableAlertText: 'People Picker Suggestions available',
-  suggestionsContainerAriaLabel: 'Suggested contacts'
+  suggestionsContainerAriaLabel: 'Suggested contacts',
 };
 
 const limitedSearchAdditionalProps: IBasePickerSuggestionsProps = {
@@ -48,16 +52,16 @@ const limitedSearchAdditionalProps: IBasePickerSuggestionsProps = {
 
 const limitedSearchSuggestionProps: IBasePickerSuggestionsProps = assign(limitedSearchAdditionalProps, suggestionProps);
 
-export class PeoplePickerTypesExample extends BaseComponent<IPeoplePickerExampleProps & any , IPeoplePickerExampleState> {
+export class PeoplePickerTypesExample extends BaseComponent<IPeoplePickerExampleProps & any, IPeoplePickerExampleState> {
   // All pickers extend from BasePicker specifying the item type.
   private _picker = React.createRef<IBasePicker<IPersonaProps>>();
 
   constructor(props: {}) {
     super(props);
-console.log({delay : this.props.delayResults})
+    console.log({ delay: this.props.delayResults })
     this.state = {
-      currentPicker: 1,
-      delayResults: this.props.delayResults? true : false,
+      currentPicker: this.props.preSelected ? 4 : 1,
+      delayResults: this.props.delayResults ? true : false,
       peopleList: people,
       mostRecentlyUsed: mru,
       currentSelectedItems: [],
@@ -93,37 +97,46 @@ console.log({delay : this.props.delayResults})
       default:
     }
 
+    const { options, hideHeader } = this.props;
     return (
-      <div>
-        {currentPicker}
-        <div style={{ width: 200 }}>
-          <Dropdown
-            label="Select People Picker Type"
-            options={[
-              { key: 1, text: 'Normal' },
-              { key: 2, text: 'Compact' },
-              { key: 3, text: 'Members List' },
-              { key: 4, text: 'Preselected Items' },
-              { key: 5, text: 'Limit Search' },
-              { key: 6, text: 'Process Selection' },
-              { key: 7, text: 'Controlled Picker' }
-            ]}
-            selectedKey={this.state.currentPicker}
-          // onChange={this._dropDownSelected}
-          />
-          <Checkbox
-            styles={{ root: { marginTop: 10 } }}
-            label="Disable People Picker"
-            checked={this.state.isPickerDisabled}
-            onChange={this._onDisabledButtonClick}
-          />
-          <Toggle
-            label="Delay Suggestion Results" defaultChecked={this.props.delayResults}
-          // onChange={this._toggleDelayResultsChange} 
-          />
+      <>
+        <div style={{ width: 400 }}>
+          {!hideHeader && <>
+            <h1>PeoplePicker (<Link href={"https://developer.microsoft.com/en-us/fabric#/components/peoplepicker"}>link</Link>) </h1>
+          </>}
+          {currentPicker}
+          {options && <>
+            <PrimaryButton style={{ marginTop: 20 }} text="Set focus" onClick={this._onSetFocusButtonClicked} />
+            <br />
+            <div style={{ width: 200 }}>
+              <Dropdown
+                label="Select People Picker Type"
+                options={[
+                  { key: 1, text: 'Normal' },
+                  { key: 2, text: 'Compact' },
+                  { key: 3, text: 'Members List' },
+                  { key: 4, text: 'Preselected Items' },
+                  { key: 5, text: 'Limit Search' },
+                  { key: 6, text: 'Process Selection' },
+                  { key: 7, text: 'Controlled Picker' }
+                ]}
+                selectedKey={this.state.currentPicker}
+              // onChange={this._dropDownSelected}
+              />
+              <Checkbox
+                styles={{ root: { marginTop: 10 } }}
+                label="Disable People Picker"
+                checked={this.state.isPickerDisabled}
+                onChange={this._onDisabledButtonClick}
+              />
+              <Toggle
+                label="Delay Suggestion Results" defaultChecked={this.props.delayResults}
+              // onChange={this._toggleDelayResultsChange} 
+              />
+            </div>
+          </>}
         </div>
-        <PrimaryButton text="Set focus" onClick={this._onSetFocusButtonClicked} />
-      </div>
+      </>
     );
   }
 
@@ -207,7 +220,7 @@ console.log({delay : this.props.delayResults})
         onEmptyInputFocus={this._returnMostRecentlyUsed}
         getTextFromItem={this._getTextFromItem}
         className={'ms-PeoplePicker'}
-        defaultSelectedItems={people.splice(0, 3)}
+        defaultSelectedItems={people.splice(0, 1)}
         key={'list'}
         pickerSuggestionsProps={suggestionProps}
         onRemoveSuggestion={this._onRemoveSuggestion}
@@ -352,9 +365,9 @@ console.log({delay : this.props.delayResults})
     }
   };
 
-  private _onItemSelected = (item: IPersonaProps| undefined): Promise<IPersonaProps> => {
+  private _onItemSelected = (item: IPersonaProps | undefined): Promise<IPersonaProps> => {
     const processedItem = { ...item };
-    if(item){
+    if (item) {
       // processedItem.text = `${item.text} (selected)`;
     }
     return new Promise<IPersonaProps>((resolve, reject) => setTimeout(() => resolve(processedItem), 250));
@@ -387,7 +400,7 @@ console.log({delay : this.props.delayResults})
 
   private _returnMostRecentlyUsedWithLimit = (currentPersonas?: IPersonaProps[] | undefined): IPersonaProps[] | Promise<IPersonaProps[]> => {
     let { mostRecentlyUsed } = this.state;
-    if(currentPersonas){
+    if (currentPersonas) {
       mostRecentlyUsed = this._removeDuplicates(mostRecentlyUsed, currentPersonas);
     }
     mostRecentlyUsed = mostRecentlyUsed.splice(0, 3);
