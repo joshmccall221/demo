@@ -1,14 +1,11 @@
 # demo
 
+[Demo: StoryBook](http://cela-demo-storybook.surge.sh)
+
 <!-- status badges -->
 [![Build Status][ci-badge]][ci-link]
 [![Codecov][coverage-badge]][coverage-link]
 
-demo of:
-
-```sh
-npx @travi/cli
-```
 
 ## Usage
 
