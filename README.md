@@ -1,18 +1,6 @@
-# Getting Started
-`npx @travi/cli`
-
-[conventionalcommits](https://www.conventionalcommits.org/)
-
-# issues
-npm login
-.netrc
-- token
-
-enable [.github/settings.yml](https://github.com/apps/settings)
-
 # demo
 
-demo
+demo of @travi/cli
 
 <!-- status badges -->
 [![Build Status][ci-badge]][ci-link]
@@ -23,6 +11,19 @@ demo
 <!-- consumer badges -->
 [![npm][npm-badge]][npm-link]
 [![MIT license][license-badge]][license-link]
+
+## issues / dependancies 
+- npm login
+- .netrc
+  - token
+- enable [.github/settings.yml](https://github.com/apps/settings)
+
+## Getting Started
+`npx @travi/cli`
+
+GH_TOKEN on Travis
+
+[conventionalcommits](https://www.conventionalcommits.org/)
 
 ### Installation
 
