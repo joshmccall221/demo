@@ -48,10 +48,17 @@
     "react-scripts": "2.1.8"
   },
   "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "@babel/core": "^7.4.3",
     "@babel/register": "^7.4.0",
+    "@storybook/addon-actions": "^5.0.6",
+    "@storybook/addon-links": "^5.0.6",
+    "@storybook/addons": "^5.0.6",
+    "@storybook/react": "^5.0.6",
     "@travi/any": "^1.8.5",
     "@travi/babel-preset": "^3.0.0",
     "@travi/eslint-config-travi": "^1.8.0",
+    "babel-loader": "^8.0.5",
     "ban-sensitive-files": "^1.9.2",
     "chai": "^4.2.0",
     "codecov": "^3.3.0",
@@ -69,12 +76,7 @@
     "rollup-plugin-auto-external": "^2.0.0",
     "sinon": "^7.3.1",
     "travis-lint": "^1.0.0",
-    "@storybook/react": "^5.0.6",
-    "@storybook/addon-actions": "^5.0.6",
-    "@storybook/addon-links": "^5.0.6",
-    "@storybook/addons": "^5.0.6",
-    "@babel/core": "^7.4.3",
-    "babel-loader": "^8.0.5"
+    "typescript": "^3.4.1"
   },
   "eslintConfig": {
     "extends": "react-app"
