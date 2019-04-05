@@ -38,7 +38,8 @@
     "watch": "run-s 'build:js -- --watch'",
     "prepack": "run-s build",
     "storybook": "start-storybook -p 9009 -s public",
-    "storybook:build-surge": "build-storybook -s public; echo '\r' |  surge --domain cela-demo-storybook.surge.sh"
+    "storybook:build": "build-storybook -s public",
+    "storybook:build-surge": "npm run storybook:build;cd storybook-static; echo '\r' |  surge --domain cela-demo-storybook.surge.sh"
   },
   "dependencies": {
     "@types/jest": "^24.0.11",
