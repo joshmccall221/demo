@@ -1,10 +1,12 @@
 # demo
-
-demo of @travi/cli
-
 <!-- status badges -->
 [![Build Status][ci-badge]][ci-link]
 [![Codecov][coverage-badge]][coverage-link]
+
+demo of:
+```sh
+npx @travi/cli
+```
 
 ## Usage
 
@@ -17,13 +19,14 @@ demo of @travi/cli
 - .netrc
   - token
 - enable [.github/settings.yml](https://github.com/apps/settings)
+- GH_TOKEN on Travis
+- [conventionalcommits](https://www.conventionalcommits.org/)
 
 ## Getting Started
-`npx @travi/cli`
+```sh
+npx @travi/cli
+```
 
-GH_TOKEN on Travis
-
-[conventionalcommits](https://www.conventionalcommits.org/)
 
 ### Installation
 
