@@ -2,7 +2,9 @@ import * as React from 'react';
 import { css, classNamesFunction } from 'office-ui-fabric-react/lib/Utilities';
 import { DefaultButton, PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 import { Label } from 'office-ui-fabric-react/lib/Label';
-import { IStyle } from '../office-ui-fabric-react/packages/charting/src/Styling';
+import { IStyle } from 'office-ui-fabric-react';
+// import { IStyle } from 'office-ui-fabric-react/lib/Label';
+// import { IStyle } from '../office-ui-fabric-react/packages/charting/src/Styling';
 
 export type IButtonBasicExampleStyleProps = {};
 
